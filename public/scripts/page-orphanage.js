@@ -1,5 +1,5 @@
 const options = {
-    dragging = false,
+    dragging: false,
     touchZoom: false,
     doubleClickZoom: false,
     scrollWheelZoom: false,
@@ -8,7 +8,7 @@ const options = {
 //create map
 const map = L.map('mapid', options).setView([-27.222633, -49.6455874], 15);
 //create and add tileLayer
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 //create icon  
 const icon = L.icon({
   iconUrl: "./public/images/map-marker.svg",
@@ -18,6 +18,7 @@ const icon = L.icon({
 })
 //create and add marker
 L.marker([-27.222633, -49.6455874], { icon }).addTo(map)
+
 // image gallery
 function selectImage(event) {
     const button = event.currentTarget
@@ -26,15 +27,14 @@ function selectImage(event) {
     const buttons = document.querySelectorAll(".images button")
     buttons.forEach(removeActiveClass)
 
-    function removeActiveClass(button){
+    function removeActiveClass(button) {
         button.classList.remove('active');
     }
     // select a image clicked
     const image = button.children[0];
-    const imgageContainer = document.querySelector(".orphanage-details > img")
+    const imageContainer = document.querySelector(".orphanage-details > img")
     // att image container
-    imgageContainer.src = image.src
+    imageContainer.src = image.src
     // add .active class for this button 
     button.classList.add('active');
 }
-
